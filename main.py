@@ -42,11 +42,10 @@ def main():
                 
                 elif escolha == '2':
                     # Add a new category
-                    cat_id = input("Digite o ID da categoria: ")
                     name = input("Digite o nome da categoria: ")
-                    category_service.add_category(cat_id, name)
-                    print("Categoria adicionada com sucesso!")
-                
+                    category_service.add_category(name)
+                    print(f"A nova categoria '{name}' foi adicionada com sucesso!")
+   
                 elif escolha == '3':
                     # Delete a category by ID
                     cat_id = input("Digite o ID da categoria que deseja excluir: ")
