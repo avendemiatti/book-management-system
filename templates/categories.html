@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <h1 class="mb-4">Lista de Categorias</h1>
+  
+  {% if categories %}
+    <ul class="list-group">
+      {% for cat in categories %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div>
+            <strong>ID:</strong> {{ cat.category_id }} 
+            <span class="mx-2">|</span> 
+            <strong>Nome:</strong> {{ cat.name }}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="alert alert-warning" role="alert">
+      Nenhuma categoria encontrada.
+    </div>
+  {% endif %}
+
+  <div class="mt-4">
+    <a class="btn btn-primary" href="{{ url_for('add_category') }}">Adicionar nova categoria</a>
+  </div>
+{% endblock %}

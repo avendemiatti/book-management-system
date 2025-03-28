@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <h1>Bem-vindo ao Sistema de Gerenciamento de Livros!</h1>
+  <p>Use o menu acima para navegar ou clique no botão abaixo para gerenciar categorias:</p>
+  
+  <a class="btn btn-primary" href="{{ url_for('list_categories') }}">
+    Gerenciar Categorias
+  </a>
+{% endblock %}
