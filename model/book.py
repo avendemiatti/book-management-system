@@ -22,4 +22,7 @@ class Book:
         self.author_id = author_id
 
     def __str__(self):
-        return f"Book[ID={self.book_id}, Title={self.title}]"
+        return (f"Book[ID={self.book_id}, Title={self.title}, Summary={self.summary}, "
+                f"Year={self.year}, Pages={self.pages}, ISBN={self.isbn}, "
+                f"Category ID={self.category_id}, Editor ID={self.editor_id}, "
+                f"Author ID={self.author_id}]")

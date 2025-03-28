@@ -1,5 +1,3 @@
-# service/author_service.py
-
 from dao.author_dao import AuthorDAO
 from model.author import Author
 
@@ -10,7 +8,7 @@ class AuthorService:
     """
 
     def __init__(self):
-        # Instantiate the DAO (using in-memory storage for now)
+        # Instantiate the DAO so we can call its methods
         self.author_dao = AuthorDAO()
 
     def list_authors(self):
@@ -20,19 +18,20 @@ class AuthorService:
         """
         return self.author_dao.list_all()
 
-    def add_author(self, author_id, name, email, phone, bio):
+    def add_author(self, name, email, phone, bio):
         """
         Create a new Author object and pass it to the DAO.
-        This is where you could add validation or checks before saving.
-        :param author_id: Unique author identifier.
         :param name: Author's name.
         :param email: Author's email address.
         :param phone: Author's phone number.
         :param bio: Author's short biography.
+        :return: The newly created Author object.
         """
-        # In a real system, you might validate (e.g., check if email is valid).
-        new_author = Author(author_id, name, email, phone, bio)
+        new_author = Author(None, name, email, phone, bio)
         self.author_dao.create(new_author)
+        return new_author
+    
+    
 
     def delete_author(self, author_id):
         """

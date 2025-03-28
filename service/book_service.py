@@ -18,21 +18,10 @@ class BookService:
         """
         return self.book_dao.list_all()
 
-    def add_book(self, book_id, title, summary, year, pages, isbn, category_id, editor_id, author_id):
-        """
-        Create and save a Book. Could include validation (e.g., checking pages > 0).
-        :param book_id: Unique identifier for the book.
-        :param title: Title of the book.
-        :param summary: A short summary or description.
-        :param year: Publication year.
-        :param pages: Number of pages.
-        :param isbn: ISBN of the book.
-        :param category_id: Associated category ID.
-        :param editor_id: Associated editor ID.
-        :param author_id: Associated author ID.
-        """
-        new_book = Book(book_id, title, summary, year, pages, isbn, category_id, editor_id, author_id)
+    def add_book(self, title, summary, year, pages, isbn, category_id, editor_id, author_id):
+        new_book = Book(None, title, summary, year, pages, isbn, category_id, editor_id, author_id)
         self.book_dao.create(new_book)
+
 
     def delete_book(self, book_id):
         """
